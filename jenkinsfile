@@ -1,0 +1,27 @@
+pipeline{
+    agent any
+    triggers{
+        pollSCM('* * * * *')
+    }
+    
+    stages{
+        stage('checkoutcoge')
+        {
+            steps{
+                git credentialsId: '310d5321-260b-431c-8382-d51594cd1235', url: 'https://github.com/phema4112/Python-Flask-RestAPI.git'
+            }
+        }
+        stage('version')
+        {
+            steps{
+                sh "python3 --version"
+            }
+        }
+        stage('hello'){
+            steps{
+                sh "python3 app.py"
+            }
+        }
+        
+    }
+}
