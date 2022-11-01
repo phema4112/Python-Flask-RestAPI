@@ -8,7 +8,10 @@ appService = AppService();
 
 @app.route('/')
 def home():
-    return "App Works!!!"
+    return "Hello, WOrld!"
+
+if __name__=='__main__':
+    app.run(debug=True,host="0.0.0.0")
 
 
 @app.route('/api/tasks')
